@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var vapiInstance = null;
-    const assistant = "4e81c450-26a7-41ed-9e15-5d59d657ae8b"; // Ella chatbot
-    const apiKey = "75d60fc5-2a1f-4b08-89c3-347c1aa95ffc"; // public key
+    const assistant = "RETRIEVE-FROM-VAPI"; // Ella chatbot
+    const apiKey = "RETRIEVE-FROM-VAPI"; // public key
     const buttonConfig = {}; // Modify this as required
 
     (function (d, t) {
