@@ -1,0 +1,54 @@
+HOMEPAGE CALL WIZARD AGENT
+
+<div style="min-width: 350px; height: 500px;" id="VG_OVERLAY_CONTAINER">
+<!-- Here is where we render the widget. -->
+<!-- Set width, height for 500px as an example after changing render to 'full-width' -->
+</div>
+
+
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script> // removed 'defer'
+    (function() {
+        window.VG_CONFIG = {
+            ID: "9jbxkdcsfvgc26nm",
+            region: 'na',
+            render: 'full-width', // popup or full-width
+            stylesheets: [
+                // Base Agents CSS
+                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = false; // Remove 'defer' if you want widget to load faster (Will affect website loading)
+        document.body.appendChild(VG_SCRIPT);
+    })()
+</script> 
+
+STELLAR REALTY SAMPLE AGENT
+
+<div style="width: 500px; height: 500px;" id="VG_OVERLAY_CONTAINER">
+<!-- Here is where TIXAE Agents renders the widget. -->
+<!-- Set width, height for 500px as an example after changing render to 'full-width' -->
+</div>
+
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script defer>
+    (function() {
+        window.VG_CONFIG = {
+            ID: "rIGwjKXsPbPYdWF",
+            region: 'na', // 'eu' or 'na'corresponding to Europe and North America
+            render: 'full-width', // popup or full-width
+            stylesheets: [
+                // Base Agents CSS
+                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = false; // Remove 'defer' if you want widget to load faster (Will affect website loading)
+        document.body.appendChild(VG_SCRIPT);
+    })()
+</script>

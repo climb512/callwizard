@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Interaction</title>
+</head>
+
+<body>
+    <!-- Your image for the voice assistant -->
+    <img src="/wp-content/themes/astra-child/microphone-icon.png" id="voiceAssistantImage" alt="Assistant"
+        style="cursor: pointer;">
+
+    <script>
+        //const apiKey = '410429f8-515a-48e0-9abf-1ef0c7ff8774'; // Private Vapi API key
+        const apiKey = '75d60fc5-2a1f-4b08-89c3-347c1aa95ffc'; // Public Vapi API key
+
+        const assistantId = '4b9c7ae8-6c54-46e6-9ffd-0440da639704'; // Replace with your assistant's ID
+        const apiEndpoint = 'https://api.vapi.ai/call/web'; // The Vapi web call endpoint
+
+        document.getElementById('voiceAssistantImage').addEventListener('click', function () {
+            // Trigger the voice recording and call initiation
+            startVoiceInteraction();
+        });
+
+        function startVoiceInteraction() {
+            // Start capturing the audio here
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const mediaRecorder = new MediaRecorder(stream);
+
+                    mediaRecorder.ondataavailable = (event) => {
+                        sendAudioToVapi(event.data);
+                    };
+
+                    mediaRecorder.start();
+
+                    setTimeout(() => {
+                        mediaRecorder.stop(); // Stop recording after a set time (e.g., 5 seconds)
+                    }, 5000);
+                })
+                .catch(error => {
+                    console.error("Microphone access denied or not available.", error);
+                });
+        }
+
+        function sendAudioToVapi(audioBlob) {
+            const formData = new FormData();
+            formData.append('audio', audioBlob);
+
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Assistant-ID': assistantId
+                },
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Vapi Response:', data);
+                    // Handle the Vapi response (e.g., play a voice response or show text)
+                })
+                .catch(error => {
+                    console.error('Error with Vapi API call:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>
